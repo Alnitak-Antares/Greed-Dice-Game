@@ -1,23 +1,19 @@
+import java.util.Scanner;
+
 public class ConfigureView {
-    private String [] name;
-    private int [] strategy;
-    private int playernum;
 
+    static private Scanner kbin = new Scanner(System.in);
 
-    public void getName()
+    static public int getIfEnd()
     {
-
+        return kbin.nextInt();
     }
-    public void setConfig()
+    static public int getPlayerType()
     {
-
+        return kbin.nextInt();
     }
-    public void getStrategy()
+    static public String getPlayerName()
     {
-
-    }
-    public void getPlayerNumber()
-    {
-
+        return kbin.nextLine();
     }
 }

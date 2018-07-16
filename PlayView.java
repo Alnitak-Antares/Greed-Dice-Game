@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class PlayView {
-    private Scanner kbin = new Scanner(System.in);
+
+    static private Scanner kbin = new Scanner(System.in);
     static public int choiceGet()
     {
-        return kbin.nextInt();
+        return kbin.nextByte();
     }
     static public void isNotEnrolledOut()
     {
