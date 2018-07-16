@@ -24,9 +24,9 @@ public class GameManager {
     }
     public static void startGame()
     {
-
+        Dices dices = new Dices();
         PlayerManager playermanager = new PlayerManager();
-        playermanager.start(Player players);
+        playermanager.start(players,dices);
     }
 
 }
