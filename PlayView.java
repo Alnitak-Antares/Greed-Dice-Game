@@ -6,7 +6,7 @@ public class PlayView {
     static public boolean getChoice()
     {
         System.out.println("请输入选择,y为投掷,n为不投掷");
-        return kbin.(char)nextByte()=='y';
+        return ((char)kbin.nextByte())=='y';
     }
     static public void isNotEnrolledOut()
     {
