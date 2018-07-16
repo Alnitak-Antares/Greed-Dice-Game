@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class PlayView {
     //private Scanner kbin = new Scanner(System.in);
@@ -12,19 +11,19 @@ public class PlayView {
     }
     public void playerTurnEndOut(int turnScore)
     {
-        System.out.println("本局得分为"+turnScore+",玩家回合结束");
+        System.out.println("本回合得分为"+turnScore+",玩家回合结束");
     }
     public void scoreUntilNowOut(String name,int turnScore)
     {
-        System.out.println("玩家当前总得分为"+turnScore);
+        System.out.println("玩家当前回合总得分为"+turnScore);
     }
     public void noDicesLeftOut()
     {
         System.out.println("没有剩余骰子,玩家回合结束");
     }
-    public void playerTotalOut(String name,int turnScore)
+    public void playerTotalOut(String name,int totalScore)
     {
-        System.out.println(name+"玩家当前总得分为"+turnScore);
+        System.out.println(name+"玩家本局总得分为"+totalScore);
     }
     public void playerGiveupOut(String name)
     {
@@ -42,6 +41,10 @@ public class PlayView {
             System.out.print(point+" ");
         }
         System.out.println(" ");
+    }
+    public void winnerOut(String name)
+    {
+        System.out.println(name+"达到3000分成为赢家，本局游戏结束");
     }
     public void shuffledPlayerOut(String[] name)
     {
