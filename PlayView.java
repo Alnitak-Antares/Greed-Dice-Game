@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class PlayView {
 
     static private Scanner kbin = new Scanner(System.in);
-    static public int getChoice()
+    static public boolean getChoice()
     {
-        return kbin.nextByte();
+        System.out.println("请输入选择,0为不投掷,1为投掷");
+        return kbin.nextBoolean();
     }
     static public void isNotEnrolledOut()
     {
