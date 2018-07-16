@@ -6,8 +6,8 @@ public class PlayerManager {
 		
 		
 	}
-	public void GetRollScore() {
-		int now_roll_number=dices.GetNumber();
+	public void getRollScore() {
+		int now_roll_number=dices.getNumber();
 		int[] rollscore=new int[now_roll_number];
 		rollscore=new Dices.GetPoint();
 		int[7] roll;
@@ -48,7 +48,7 @@ public class PlayerManager {
 		
 	}
 	
-	public void ScoreToPlayer(int nowplayer) {
+	public void scoreToPlayer(int nowplayer) {
 		players[nowplayer].SetHandScore();
 		
 	}
