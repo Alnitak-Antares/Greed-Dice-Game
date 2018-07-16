@@ -19,7 +19,7 @@ public class GameManager {
                 break;
             playerType = configureview.getPlayerType();
             playerName = configureview.getPlayerName();
-            //player[playerNum++] = new Player(playerType,playerName);
+            players[playerNum++] = Player(playerType,playerName);
         }
     }
     public static void startGame()
