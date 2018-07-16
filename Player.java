@@ -10,8 +10,8 @@ abstract public class Player {
         name = playerName;
     }
 
-    abstract public boolean makeChoice();
-    
+    abstract public boolean makeChoice(Dices dices);
+
     public String getName()
     {
         return name;
@@ -20,11 +20,11 @@ abstract public class Player {
     {
         return enrolled;
     }
-    public void getEnrolled()
+    public void setEnrolled()
     {
         enrolled = true;
     }
-    public int setTotalScore()
+    public int getTotalScore()
     {
         return totalScore;
     }
