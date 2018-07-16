@@ -1,5 +1,5 @@
+package greed_game;
 import java.util.Random;
-
 
 public class PlayerManager {
     public void start(Player[] players,int playerNum,Dices dices,PlayView playview) {
@@ -38,12 +38,12 @@ public class PlayerManager {
                     {
                         //“本回合得分为零，玩家回合结束”
                         curPlayer.clearTurnScore();
-                        playview.playerTrunEndOut();
+                        playview.playerTurnEndOut(curPlayer.getTurnScore());
                         break;
                     }
                     curPlayer.addTurnScore(rollScore);
                     //“玩家本回合得分为turnScore”
-                    playview.scoreUntilNowOut(curPlayer.getTurnScore());
+                    playview.scoreUntilNowOut(curPlayer.getName(),curPlayer.getTurnScore());
                     if(dices.getNumber() == 0)
                     {
                         //“没有剩余骰子，玩家回合结束”
@@ -57,7 +57,7 @@ public class PlayerManager {
                 else
                 {
                     //"xx玩家放弃投掷，玩家回合结束"
-                	playview.playerGiveupOut();
+                	playview.playerGiveupOut(curPlayer.getName());
                     //curPlayer.addTotalScore();
                     //curPlayer.clearTurnScore();
                     //"xxw玩家当前总得分为："
@@ -65,26 +65,27 @@ public class PlayerManager {
                 }
             }
             //"玩家回合结束"
-            curPlayer.addTotalScore();
+            curPlayer.addTotalScore(curPlayer.getTurnScore());
             curPlayer.clearTurnScore();
             //打印玩家信息
 
-            playview.playerTotalOut(curPlayer.getTotalScore());
+            playview.playerTotalOut(curPlayer.getName(),curPlayer.getTotalScore());
             if(curPlayer.getTotalScore() >= 3000)
             {
                 //“宣布胜者，本局游戏结束”
                 gameOver = true;
-                playview.gameEndOut(curPlayer);
+                playview.winnerOut(curPlayer.getName());
                 break;
             }
         }while(!gameOver);
     }
     public int countAndRemove(Dices dices) {
         int now_roll_number=dices.getNumber();
-        int[] rollscore=new int[now_roll_number];
-        rollscore=dices.getPoint();
+        int[] rollscore=dices.getPoint();
         int[] roll=new int[7];
         for(int score=1;score<=6;score++) roll[score]=0;
+        for(int dicesid=0;dicesid<now_roll_number;dicesid++)
+        	roll[rollscore[dicesid]]++;
         int nowscore=0,decroll=0;
         if (roll[1]==6) {
             roll[1]-=6;
@@ -119,6 +120,7 @@ public class PlayerManager {
             decroll++;
         }
         dices.removeDices(decroll);
+        return nowscore;
     }
 
 
@@ -128,12 +130,12 @@ public class PlayerManager {
     public void sortPlayers(Player[] players,int playerNum)
     {
     	Random rand = new Random();
-    	Player tmpPlayer=new Player();
+    	Player tmpPlayer;
     	for(int i=0;i<playerNum;i++) {
-    		Player swapPlayer=Player[rand.nextInt(i+1)];
+    		Player swapPlayer=players[rand.nextInt(i+1)];
     		tmpPlayer=swapPlayer;
-    		swapPlayer=Player[i];
-    		Player[i]=tmpPlayer;
+    		swapPlayer=players[i];
+    		players[i]=tmpPlayer;
     	}
     }
 }
