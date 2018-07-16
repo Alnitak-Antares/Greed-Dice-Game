@@ -1,25 +1,39 @@
-public class Player {
-    private int score;
+abstract public class Player {
     private String name;
-    private int inround;
-    Player(String name,int )
+    private boolean enrolled = false;
+    private int totalScore = 0;
+    private int turnScore = 0;
+    //private int rollScore = 0;
+
+    Player(String playerName)
     {
-
-    }
-    public void rollDice() {
-
+        name = playerName;
     }
 
-    public void addScore()
+    public static void rollDice(Dices dices) {
+        dices.roll();
+    }
+
+    abstract public boolean makeChoice();
+    public void getEnrolled()
     {
-
+        enrolled = true;
     }
-    public void setScore()
+    public int getTotalScore()
     {
-
+        return totalScore;
     }
-    public void strategy()
+    public int getTurnScore()
     {
-
+        return turnScore;
+    }
+    public void clearTurnScore()
+    {
+        turnScore = 0;
+    }
+    public void endTurn()
+    {
+        totalScore += turnScore;
+        turnScore = 0;
     }
 }
