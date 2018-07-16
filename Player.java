@@ -27,7 +27,7 @@ abstract public class Player {
     {
         return turnScore;
     }
-    putlic void addTurnScore(int score)
+    public void addTurnScore(int score)
     {
         turnScore += score;
     }
