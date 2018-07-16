@@ -15,6 +15,10 @@ abstract public class Player {
     }
 
     abstract public boolean makeChoice();
+    public boolean isEnrolled()
+    {
+        return enrolled;
+    }
     public void getEnrolled()
     {
         enrolled = true;
@@ -22,6 +26,10 @@ abstract public class Player {
     public int getTotalScore()
     {
         return totalScore;
+    }
+    public void addTotalScore(int score)
+    {
+        totalScore += score;
     }
     public int getTurnScore()
     {
@@ -31,16 +39,8 @@ abstract public class Player {
     {
         turnScore += score;
     }
-    public void endTurn(boolean isNormalEnd)
+    public void clearTurnScore()
     {
-        if(isNormalEnd)
-        {   
-            totalScore += turnScore;
-            turnScore = 0;
-        }
-        else
-        {
-            turnScore = 0;
-        }
+        turnScore = 0;
     }
 }
