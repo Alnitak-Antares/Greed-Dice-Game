@@ -27,13 +27,20 @@ abstract public class Player {
     {
         return turnScore;
     }
-    public void clearTurnScore()
+    putlic void addTurnScore(int score)
     {
-        turnScore = 0;
+        turnScore += score;
     }
-    public void endTurn()
+    public void endTurn(boolean isNormalEnd)
     {
-        totalScore += turnScore;
-        turnScore = 0;
+        if(isNormalEnd)
+        {   
+            totalScore += turnScore;
+            turnScore = 0;
+        }
+        else
+        {
+            turnScore = 0;
+        }
     }
 }
