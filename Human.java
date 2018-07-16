@@ -6,7 +6,7 @@ public class Human extends Player {
 
     @Override
     public boolean makeChoice(Dices dices) {
-        boolean choice = PlayView.choiceGet();
+        boolean choice = PlayView.getChoice();
         if(choice == true)
         {
             dices.roll();
