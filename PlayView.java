@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PlayView {
 
     static private Scanner kbin = new Scanner(System.in);
-    static public int choiceGet()
+    static public int getChoice()
     {
         return kbin.nextByte();
     }

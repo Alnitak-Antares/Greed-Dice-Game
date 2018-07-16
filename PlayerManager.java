@@ -2,7 +2,7 @@ package greed_game;
 import java.util.Random;
 
 public class PlayerManager {
-    public void start(Player[] players,int playerNum,Dices dices,PlayView playview) {
+    public void start(Player[] players,int playerNum,Dices dices) {
         sortPlayers(players,playerNum);
         
         boolean gameOver = false;
@@ -10,7 +10,7 @@ public class PlayerManager {
         /*全部人还没入局*/
         do {
             playerIdx = (playerIdx+1)%playerNum;
-            setDices(dices);
+            dices.reset();
             Player curPlayer;
             while(true)
             {
@@ -18,19 +18,19 @@ public class PlayerManager {
                 curPlayer = players[playerIdx];
                 if(choice)
                 {
-                    playview.rollPointOut(curPlayer.getName(),dices.getPoint());
+                	PlayView.rollPointOut(curPlayer.getName(),dices.getPoint());
                     int rollScore = countAndRemove(dices);
-                    playview.rollScoreOut(rollScore);
+                    PlayView.rollScoreOut(rollScore);
                     if(!curPlayer.isEnrolled())
                     {
                         if(rollScore < 300) {
                             //”未入局“
-                        	playview.isNotEnrolledOut();
+                        	PlayView.isNotEnrolledOut();
                             break;
                         }
                         else {
                             //”入局“
-                        	playview.isEnrolledOut();
+                        	PlayView.isEnrolledOut();
                             curPlayer.setEnrolled();
                         }
                     }
@@ -38,16 +38,16 @@ public class PlayerManager {
                     {
                         //“本回合得分为零，玩家回合结束”
                         curPlayer.clearTurnScore();
-                        playview.playerTurnEndOut(curPlayer.getTurnScore());
+                        PlayView.playerTurnEndOut(curPlayer.getTurnScore());
                         break;
                     }
                     curPlayer.addTurnScore(rollScore);
                     //“玩家本回合得分为turnScore”
-                    playview.scoreUntilNowOut(curPlayer.getName(),curPlayer.getTurnScore());
+                    PlayView.scoreUntilNowOut(curPlayer.getName(),curPlayer.getTurnScore());
                     if(dices.getNumber() == 0)
                     {
                         //“没有剩余骰子，玩家回合结束”
-                    	playview.noDicesLeftOut();
+                    	PlayView.noDicesLeftOut();
                         //curPlayer.addTotalScore();
                         //curPlayer.clearTurnScore();
                         //"xxw玩家当前总得分为："
@@ -57,7 +57,7 @@ public class PlayerManager {
                 else
                 {
                     //"xx玩家放弃投掷，玩家回合结束"
-                	playview.playerGiveupOut(curPlayer.getName());
+                	PlayView.playerGiveupOut(curPlayer.getName());
                     //curPlayer.addTotalScore();
                     //curPlayer.clearTurnScore();
                     //"xxw玩家当前总得分为："
@@ -69,12 +69,12 @@ public class PlayerManager {
             curPlayer.clearTurnScore();
             //打印玩家信息
 
-            playview.playerTotalOut(curPlayer.getName(),curPlayer.getTotalScore());
+            PlayView.playerTotalOut(curPlayer.getName(),curPlayer.getTotalScore());
             if(curPlayer.getTotalScore() >= 3000)
             {
                 //“宣布胜者，本局游戏结束”
                 gameOver = true;
-                playview.winnerOut(curPlayer.getName());
+                PlayView.winnerOut(curPlayer.getName());
                 break;
             }
         }while(!gameOver);
@@ -123,10 +123,7 @@ public class PlayerManager {
         return nowscore;
     }
 
-
-    public void setDices(Dices dices) {
-    	dices.reset();
-    }
+    
     public void sortPlayers(Player[] players,int playerNum)
     {
     	Random rand = new Random();
