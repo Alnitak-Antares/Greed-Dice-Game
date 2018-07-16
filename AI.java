@@ -1,3 +1,4 @@
+package greed_game;
 public class AI extends Player {
     AI(String name)
     {

@@ -1,3 +1,4 @@
+package greed_game;
 abstract public class Player {
     private String name;
     private boolean enrolled = false;
@@ -45,3 +46,4 @@ abstract public class Player {
         turnScore = 0;
     }
 }
+

@@ -1,3 +1,4 @@
+package greed_game;
 import java.util.Random;
 
 public class Dices {

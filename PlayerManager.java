@@ -4,7 +4,6 @@ import java.util.Random;
 public class PlayerManager {
     public void start(Player[] players,int playerNum,Dices dices) {
         sortPlayers(players,playerNum);
-        
         boolean gameOver = false;
         int playerIdx=-1;
         /*全部人还没入局*/
@@ -18,7 +17,7 @@ public class PlayerManager {
                 curPlayer = players[playerIdx];
                 if(choice)
                 {
-                	PlayView.rollPointOut(curPlayer.getName(),dices.getPoint());
+                	PlayView.rollPointOut(curPlayer.getName(),dices.getPoint(),dices.getNumber());
                     int rollScore = countAndRemove(dices);
                     PlayView.rollScoreOut(rollScore);
                     if(!curPlayer.isEnrolled())
@@ -129,10 +128,17 @@ public class PlayerManager {
     	Random rand = new Random();
     	Player tmpPlayer;
     	for(int i=0;i<playerNum;i++) {
-    		Player swapPlayer=players[rand.nextInt(i+1)];
-    		tmpPlayer=swapPlayer;
-    		swapPlayer=players[i];
+    		int now=rand.nextInt(i+1);
+    	//	Player swapPlayer=players[now];
+    		tmpPlayer=players[now];
+    		players[now]=players[i];
     		players[i]=tmpPlayer;
+    	//	System.out.println(now+":"+tmpPlayer.getName()+","+players[now].getName()+","+players[i].getName());
     	}
+    	String[] name=new String[playerNum];
+    	for(int i=0;i<playerNum;i++) {
+    		name[i]=players[i].getName();
+    	}
+    	PlayView.shuffledPlayerOut(name,playerNum);
     }
 }

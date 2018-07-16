@@ -1,3 +1,4 @@
+package greed_game;
 public class GameManager {
     public static void main(String[] args)
     {
@@ -21,6 +22,7 @@ public class GameManager {
                     System.out.println("请至少有两名玩家参加游戏");
                 else
                     break;
+             //   continue;
             }
             if(playerNum == 10)
             {
