@@ -15,6 +15,11 @@ abstract public class Player {
     }
 
     abstract public boolean makeChoice();
+    
+    public String getName()
+    {
+        return name;
+    }
     public boolean isEnrolled()
     {
         return enrolled;
