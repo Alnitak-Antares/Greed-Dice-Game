@@ -1,39 +1,44 @@
+import java.util.Scanner;
 
 public class PlayView {
-    //private Scanner kbin = new Scanner(System.in);
-    public void isNotEnrolledOut()
+    private Scanner kbin = new Scanner(System.in);
+    static public int choiceGet()
+    {
+        return kbin.nextInt();
+    }
+    static public void isNotEnrolledOut()
     {
         System.out.println("未入局");
     }
-    public void isEnrolledOut()
+    static void isEnrolledOut()
     {
         System.out.println("入局");
     }
-    public void playerTurnEndOut(int turnScore)
+    static public void playerTurnEndOut(int turnScore)
     {
         System.out.println("本回合得分为"+turnScore+",玩家回合结束");
     }
-    public void scoreUntilNowOut(String name,int turnScore)
+    static public void scoreUntilNowOut(String name,int turnScore)
     {
         System.out.println("玩家当前回合总得分为"+turnScore);
     }
-    public void noDicesLeftOut()
+    static public void noDicesLeftOut()
     {
         System.out.println("没有剩余骰子,玩家回合结束");
     }
-    public void playerTotalOut(String name,int totalScore)
+    static public void playerTotalOut(String name,int totalScore)
     {
         System.out.println(name+"玩家本局总得分为"+totalScore);
     }
-    public void playerGiveupOut(String name)
+    static public void playerGiveupOut(String name)
     {
         System.out.println(name+"玩家放弃投掷，玩家回合结束");
     }
-    public void rollScoreOut(int rollScore)
+    static public void rollScoreOut(int rollScore)
     {
         System.out.println("本把得分为"+rollScore);
     }
-    public void rollPointOut(String name,int[] point)
+    static public void rollPointOut(String name,int[] point)
     {
         System.out.print(name+"玩家投掷出的骰子点数为");
         for(int i=0;i<6;i++)
@@ -42,11 +47,11 @@ public class PlayView {
         }
         System.out.println(" ");
     }
-    public void winnerOut(String name)
+    static public void winnerOut(String name)
     {
         System.out.println(name+"达到3000分成为赢家，本局游戏结束");
     }
-    public void shuffledPlayerOut(String[] name)
+    static public void shuffledPlayerOut(String[] name)
     {
         for(int i=0;i<6;i++)
         {
