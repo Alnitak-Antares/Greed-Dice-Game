@@ -39,12 +39,12 @@ public class PlayView {
     {
     	//System.out.println(name+"玩家回合结束);
     	System.out.println("");
-    	surroundSmallOut(name+"玩家回合结束"+"本局累计总得分为"+totalScore,35);
+    	surroundSmallOut("玩家"+name+"回合结束"+"本局累计总得分为"+totalScore,35);
         System.out.println(" ");
     }
     static public void playerGiveupOut(String name)
     {
-        System.out.println(name+"玩家放弃投掷，玩家回合结束");
+        System.out.println("玩家"+name+"放弃投掷，玩家回合结束");
         System.out.println(" ");
     }
     static public void rollScoreOut(int rollScore)
@@ -53,8 +53,8 @@ public class PlayView {
     }
     static public void rollPointOut(String name,int[] point,int dicesnum)
     {
-    	System.out.println(name+"玩家选择投掷骰子");
-        System.out.print(name+"玩家投掷出的骰子点数为");
+    	System.out.println("玩家"+name+"选择投掷骰子");
+        System.out.print("玩家"+name+"投掷出的骰子点数为");
         for(int i=0;i<dicesnum;i++)
         {
             System.out.print(point[i]+" ");
@@ -67,7 +67,7 @@ public class PlayView {
     }
     static public void winnerOut(String name)
     {
-        System.out.println(name+"达到3000分成为赢家，本局游戏结束");
+        System.out.println("玩家"+name+"达到3000分成为赢家，本局游戏结束");
     }
     static public void shuffledPlayerOut(String[] name,int playersnum)
     {

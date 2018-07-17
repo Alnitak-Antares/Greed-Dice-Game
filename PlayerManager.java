@@ -78,7 +78,7 @@ public class PlayerManager {
                 PlayView.winnerOut(curPlayer.getName());
                 break;
             }
-            PlayView.waitingConfirm();
+          //  PlayView.waitingConfirm();
         }while(!gameOver);
     }
     public int countAndRemove(Dices dices) {

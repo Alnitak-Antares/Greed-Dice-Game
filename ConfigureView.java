@@ -18,7 +18,7 @@ public class ConfigureView {
     }
     static public int getPlayerType()
     {
-        System.out.println("请输入玩家类型(0表示HUMan,1表示AI)：");
+        System.out.println("请输入玩家类型(0表示Human,1表示AI)：");
         return kbin.nextInt();
     }
     static public String getPlayerName()
