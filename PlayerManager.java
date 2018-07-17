@@ -11,7 +11,7 @@ public class PlayerManager {
             playerIdx = (playerIdx+1)%playerNum;
             dices.reset();
             Player curPlayer=players[playerIdx];
-            PlayView.nowTurnPlayer(curPlayer.getName(),(curPlayer instanceof Human));
+            PlayView.nowTurnPlayer(curPlayer.getName(),(curPlayer instanceof Human),curPlayer.getTotalScore());
             while(true)
             {
             	PlayView.nowTurnDicesTotal(dices.getNumber());

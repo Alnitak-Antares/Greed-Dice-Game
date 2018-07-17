@@ -61,8 +61,8 @@ public class PlayView {
         }
         System.out.println(" ");
     }
-    static public void nowTurnPlayer(String name,boolean type) {
-    	surroundBigOut("当前进入玩家"+name+(type==true?"(Human)":"(AI)")+"回合");
+    static public void nowTurnPlayer(String name,boolean type,int nowScore) {
+    	surroundBigOut("当前进入玩家"+name+(type==true?"(Human)":"(AI)")+"回合，此前得分:"+nowScore);
     	
     }
     static public void winnerOut(String name)
@@ -90,7 +90,7 @@ public class PlayView {
     	//第一行
     	System.out.print("#");for(int i=1;i<=40;i++) System.out.print('=');System.out.println("#");
     	//输出内容
-    	System.out.print("#");for(int i=1;i<=10;i++) System.out.printf(" ");
+    	System.out.print("#");for(int i=1;i<=5;i++) System.out.printf(" ");
     	System.out.print(output);
     	for(int i=1;i<=30-output.length();i++) System.out.print(" ");System.out.println("#");
     	//第三行
