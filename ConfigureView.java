@@ -7,6 +7,9 @@ public class ConfigureView {
     static public void intoGreed() {
     	surroundOut("Greed骰子游戏",70);
     }
+    static public void endGreed() {
+    	surroundOut("Greed骰子游戏结束",70);
+    }
     static public void startConfigure() {
     	surroundOut("游戏配置",50);
     }

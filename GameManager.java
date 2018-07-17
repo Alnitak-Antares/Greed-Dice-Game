@@ -7,6 +7,7 @@ public class GameManager {
     		configureGame();
     		startGame();
     	}while (ConfigureView.getIfNextGreedGame());
+    	ConfigureView.endGreed();
     }
     private static Player [] players = new Player[10];
     private static int playerNum = 0;
