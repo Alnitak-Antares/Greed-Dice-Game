@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><!--This file was converted to xhtml by LibreOffice - see http://cgit.freedesktop.org/libreoffice/core/tree/filter/source/xslt for the code.--><head profile="http://dublincore.org/documents/dcmi-terms/"><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/><title xml:lang="en-US">- no title specified</title><meta name="DCTERMS.title" content="" xml:lang="en-US"/><meta name="DCTERMS.language" content="en-US" scheme="DCTERMS.RFC4646"/><meta name="DCTERMS.source" content="http://xml.openoffice.org/odf2xhtml"/><meta name="DCTERMS.issued" content="2018-07-17T22:24:50.825525321" scheme="DCTERMS.W3CDTF"/><meta name="DCTERMS.modified" content="2018-07-18T01:14:23.463422076" scheme="DCTERMS.W3CDTF"/><meta name="DCTERMS.provenance" content="" xml:lang="en-US"/><meta name="DCTERMS.subject" content="," xml:lang="en-US"/><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" hreflang="en"/><link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" hreflang="en"/><link rel="schema.DCTYPE" href="http://purl.org/dc/dcmitype/" hreflang="en"/><link rel="schema.DCAM" href="http://purl.org/dc/dcam/" hreflang="en"/><style type="text/css">
+	@page {  }
+	table { border-collapse:collapse; border-spacing:0; empty-cells:show }
+	td, th { vertical-align:top; font-size:12pt;}
+	h1, h2, h3, h4, h5, h6 { clear:both }
+	ol, ul { margin:0; padding:0;}
+	li { list-style: none; margin:0; padding:0;}
+	<!-- "li span.odfLiEnd" - IE 7 issue-->
+	li span. { clear: both; line-height:0; width:0; height:0; margin:0; padding:0; }
+	span.footnodeNumber { padding-right:1em; }
+	span.annotation_style_by_filter { font-size:95%; font-family:Arial; background-color:#fff000;  margin:0; border:0; padding:0;  }
+	* { margin:0;}
+	.P1 { font-size:12pt; font-family:Liberation Serif; writing-mode:page; }
+	.P2 { font-size:12pt; font-family:Liberation Serif; writing-mode:page; text-align:left ! important; }
+	.P3 { font-size:12pt; font-family:Liberation Serif; writing-mode:page; text-align:left ! important; }
+	<!-- ODF styles with no properties representable as CSS -->
+	.T1 .T2 .T3 .T4 .T5 .T6 .T7  { }
+	</style></head><body dir="ltr" style="max-width:21.001cm;margin-top:2cm; margin-bottom:2cm; margin-left:2cm; margin-right:2cm; "><p class="P1">从以上的问题描述中可以发现以下这些关键词出现或重复出现：</p><p class="P1"><span class="T4">多人骰子系统</span>，玩家，游戏控制系统，配置界面，游戏配置者，<span class="T4">玩家属性</span>，真人玩家，机器人玩家，游玩界面，<span class="T4">一局</span>，虚拟裁判，<span class="T4">玩家行为</span>，游戏次序，<span class="T4">得分</span>，<span class="T4">回合</span>，<span class="T4">次</span>，<span class="T4">决策</span>，骰子，<span class="T4">得分骰子</span>，计分规则。</p><p class="P1"> </p><p class="P1">筛选对象类：</p><p class="P1">（<span class="T1">1）取消冗余类</span></p><p class="P1">  游戏控制系统与多人骰子系统职能相近，游戏控制系统相较多人骰子系统能更全面的概括对游戏的控制职能，因此将多人骰子系统删去。得分骰子包含在骰子中，应该删去。</p><p class="P1">（<span class="T2">2）</span>消除不相干类</p><p class="P1">  消除掉与游戏不相关的关键词。</p><p class="P1">  提取的类中无与游戏不相干的关键词。</p><p class="P1">（<span class="T2">3）消除本身是属性的类</span></p><p class="P1">  玩家属性和得分是玩家的属性，不应作为单独的类列出，故删去。计分规则是虚拟裁判的属性，故应驱除掉。</p><p class="P1">（<span class="T3">4</span>）消除属于动作的类</p><p class="P1">  决策和玩家行为是玩家的动作，属于玩家做出的动作，故可以删掉。一局，回合和次是游戏控制系统的动作，故应从表中去掉。</p><p class="P1"><span class="T3"> (5)消除属于作用名的类</span></p><p class="P1">  无属于作用名的类</p><p class="P1">（<span class="T5">6）消除实现时才用到的结构名</span></p><p class="P1">  无实现时才用到的结构名</p><p class="P1">（<span class="T6">7）明确模糊的名词</span></p><p class="P1">  回合指的是玩家从初始投掷的六颗骰子开始，到回合结束为止的一个阶段。次是指玩家投一次骰子的动作。</p><p class="P1">  </p><p class="P2">经过以上筛选：</p><p class="P3">最后剩余的关键词为：玩家，虚拟裁判，骰子，游戏控制系统，真人玩家，机器人玩家，配置界面，游玩界面。分别命名为，Player<span class="T7">，PlayerManager，DicesBox，GameManager，Human，AI，ConfigureView，PlayView</span>。</p><p class="P3"> </p><p class="P3"> </p></body></html>
