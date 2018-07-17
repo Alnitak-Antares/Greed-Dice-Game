@@ -2,8 +2,11 @@ package greed_game;
 public class GameManager {
     public static void main(String[] args)
     {
-        configureGame();
-        startGame();
+    	ConfigureView.intoGreed();
+    	do {
+    		configureGame();
+    		startGame();
+    	}while (ConfigureView.getIfNextGreedGame());
     }
     private static Player [] players = new Player[10];
     private static int playerNum = 0;
@@ -14,6 +17,7 @@ public class GameManager {
         String playerName;
         int playerType;
         ConfigureView.startConfigure();
+        playerNum=0;
         while(true) {
 
             isConfigureEnd = ConfigureView.getIfEnd();

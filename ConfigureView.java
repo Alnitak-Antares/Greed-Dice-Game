@@ -4,8 +4,22 @@ import java.util.Scanner;
 public class ConfigureView {
 
     static public Scanner kbin = new Scanner(System.in);
+    static public void intoGreed() {
+    	surroundOut("Greed骰子游戏",70);
+    }
     static public void startConfigure() {
-    	surroundOut("Greed骰子游戏");
+    	surroundOut("游戏配置",50);
+    }
+    static public boolean getIfNextGreedGame()
+    {
+    	System.out.println("");
+    	System.out.println("");
+    	askingOut("是否再来一局？y/n");
+        //  System.out.println("是否停止设置并开始游戏？y/n");
+        String c=kbin.next();
+        boolean next = c.contains("y");
+        return next;
+
     }
     static public boolean getIfEnd()
     {
@@ -29,7 +43,7 @@ public class ConfigureView {
     }
     static public void startGame()
     {
-    	surroundOut("greed游戏开始");
+    	surroundOut("greed游戏开始",50);
     }
     static public void errorInput(int errorid) {
     	System.out.print("ERROR:");
@@ -44,19 +58,19 @@ public class ConfigureView {
     	}
     	System.out.println("");
     }
-    static public void surroundOut(String output) {
+    static public void surroundOut(String output,int length) {
     	//第一行
-    	System.out.print("#");for(int i=1;i<=50;i++) System.out.print('=');System.out.println("#");
+    	System.out.print("#");for(int i=1;i<=length;i++) System.out.print('=');System.out.println("#");
     	//第二行
-    	System.out.print("#");for(int i=1;i<=50;i++) System.out.printf(" ");System.out.println("#");
+    	System.out.print("#");for(int i=1;i<=length;i++) System.out.printf(" ");System.out.println("#");
     	//输出内容
-    	System.out.print("#");for(int i=1;i<=10;i++) System.out.printf(" ");
+    	System.out.print("#");for(int i=1;i<=length/3;i++) System.out.printf(" ");
     	System.out.print(output);
-    	for(int i=1;i<=50-output.length();i++) System.out.print(" ");System.out.println("#");
+    	for(int i=1;i<=length-output.length()-length/3;i++) System.out.print(" ");System.out.println("#");
     	//第四行
-    	System.out.print("#");for(int i=1;i<=50;i++) System.out.printf(" ");System.out.println("#");
+    	System.out.print("#");for(int i=1;i<=length;i++) System.out.printf(" ");System.out.println("#");
     	//第五行
-    	System.out.print("#");for(int i=1;i<=50;i++) System.out.print('=');System.out.println("#");
+    	System.out.print("#");for(int i=1;i<=length;i++) System.out.print('=');System.out.println("#");
     	System.out.println("");
     }
     static public void askingOut(String output) {
@@ -65,7 +79,7 @@ public class ConfigureView {
     	//输出内容
     	System.out.print("#");for(int i=1;i<=10;i++) System.out.printf(" ");
     	System.out.print(output);
-    	for(int i=1;i<=50-output.length();i++) System.out.print(" ");System.out.println("#");
+    	for(int i=1;i<=40-output.length();i++) System.out.print(" ");System.out.println("#");
     	//第三行
     	System.out.print("#");for(int i=1;i<=50;i++) System.out.print('-');System.out.println("#");
     	System.out.println("");
