@@ -8,6 +8,11 @@ public class AI extends Player {
     @Override
     public boolean makeChoice(Dices dices)
     {
+    	try   
+    	{   
+    		Thread.sleep(1000);
+    	}   
+    	catch(Exception e){}  
         dices.roll();
         return true;
     }

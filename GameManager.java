@@ -13,20 +13,21 @@ public class GameManager {
         boolean isConfigureEnd;
         String playerName;
         int playerType;
+        ConfigureView.startConfigure();
         while(true) {
 
             isConfigureEnd = ConfigureView.getIfEnd();
             if(isConfigureEnd)
             {
                 if(playerNum<2)
-                    System.out.println("请至少有两名玩家参加游戏");
+                	ConfigureView.errorInput(1);
                 else
                     break;
-             //   continue;
+                continue;
             }
             if(playerNum == 10)
             {
-                System.out.println("玩家最多为十人");
+                ConfigureView.errorInput(2);
                 continue;
             }
             playerType = ConfigureView.getPlayerType();
@@ -35,8 +36,8 @@ public class GameManager {
                 players[playerNum++] = new Human(playerName);
             else
                 players[playerNum++] = new AI(playerName);
-
         }
+        ConfigureView.startGame();
     }
     public static void startGame()
     {

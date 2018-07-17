@@ -10,11 +10,13 @@ public class PlayerManager {
         do {
             playerIdx = (playerIdx+1)%playerNum;
             dices.reset();
-            Player curPlayer;
+            Player curPlayer=players[playerIdx];
+            PlayView.nowTurnPlayer(curPlayer.getName(),(curPlayer instanceof Human));
             while(true)
             {
+            	PlayView.nowTurnDicesTotal(dices.getNumber());
+            	PlayView.nowaskDices(curPlayer.getName());
                 boolean choice = players[playerIdx].makeChoice(dices);
-                curPlayer = players[playerIdx];
                 if(choice)
                 {
                 	PlayView.rollPointOut(curPlayer.getName(),dices.getPoint(),dices.getNumber());
@@ -24,12 +26,12 @@ public class PlayerManager {
                     {
                         if(rollScore < 300) {
                             //”未入局“
-                        	PlayView.isNotEnrolledOut();
+                        	PlayView.isNotEnrolledOut(curPlayer.getName());
                             break;
                         }
                         else {
                             //”入局“
-                        	PlayView.isEnrolledOut();
+                        	PlayView.isEnrolledOut(curPlayer.getName());
                             curPlayer.setEnrolled();
                         }
                     }
@@ -76,6 +78,7 @@ public class PlayerManager {
                 PlayView.winnerOut(curPlayer.getName());
                 break;
             }
+            PlayView.waitingConfirm();
         }while(!gameOver);
     }
     public int countAndRemove(Dices dices) {
