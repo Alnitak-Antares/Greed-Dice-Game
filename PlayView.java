@@ -1,4 +1,3 @@
-package greed_game;
 import java.util.Scanner;
 
 public class PlayView {

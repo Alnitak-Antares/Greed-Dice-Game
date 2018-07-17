@@ -1,4 +1,3 @@
-package greed_game;
 public class AI extends Player {
     AI(String name)
     {
@@ -6,14 +5,14 @@ public class AI extends Player {
     }
 
     @Override
-    public boolean makeChoice(Dices dices)
+    public boolean makeChoice(DiceBox diceBox)
     {
     	try   
     	{   
     		Thread.sleep(1000);
     	}   
     	catch(Exception e){}  
-        dices.roll();
+        diceBox.roll();
         return true;
     }
 }

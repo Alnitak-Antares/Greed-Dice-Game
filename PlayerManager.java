@@ -1,26 +1,25 @@
-package greed_game;
 import java.util.Random;
 
 public class PlayerManager {
-    public void start(Player[] players,int playerNum,Dices dices) {
+    public void start(Player[] players, int playerNum, DiceBox diceBox) {
         sortPlayers(players,playerNum);
         boolean gameOver = false;
         int playerIdx=-1;
         /*全部人还没入局*/
         do {
             playerIdx = (playerIdx+1)%playerNum;
-            dices.reset();
+            diceBox.reset();
             Player curPlayer=players[playerIdx];
             PlayView.nowTurnPlayer(curPlayer.getName(),(curPlayer instanceof Human),curPlayer.getTotalScore());
             while(true)
             {
-            	PlayView.nowTurnDicesTotal(dices.getNumber());
+            	PlayView.nowTurnDicesTotal(diceBox.getNumber());
             	PlayView.nowaskDices(curPlayer.getName());
-                boolean choice = players[playerIdx].makeChoice(dices);
+                boolean choice = players[playerIdx].makeChoice(diceBox);
                 if(choice)
                 {
-                	PlayView.rollPointOut(curPlayer.getName(),dices.getPoint(),dices.getNumber());
-                    int rollScore = countAndRemove(dices);
+                	PlayView.rollPointOut(curPlayer.getName(), diceBox.getPoint(), diceBox.getNumber());
+                    int rollScore = countAndRemove(diceBox);
                     PlayView.rollScoreOut(rollScore);
                     if(!curPlayer.isEnrolled())
                     {
@@ -45,7 +44,7 @@ public class PlayerManager {
                     curPlayer.addTurnScore(rollScore);
                     //“玩家本回合得分为turnScore”
                     PlayView.scoreUntilNowOut(curPlayer.getName(),curPlayer.getTurnScore());
-                    if(dices.getNumber() == 0)
+                    if(diceBox.getNumber() == 0)
                     {
                         //“没有剩余骰子，玩家回合结束”
                     	PlayView.noDicesLeftOut();
@@ -81,9 +80,9 @@ public class PlayerManager {
           //  PlayView.waitingConfirm();
         }while(!gameOver);
     }
-    public int countAndRemove(Dices dices) {
-        int now_roll_number=dices.getNumber();
-        int[] rollscore=dices.getPoint();
+    public int countAndRemove(DiceBox diceBox) {
+        int now_roll_number= diceBox.getNumber();
+        int[] rollscore= diceBox.getPoint();
         int[] roll=new int[7];
         for(int score=1;score<=6;score++) roll[score]=0;
         for(int dicesid=0;dicesid<now_roll_number;dicesid++)
@@ -121,7 +120,7 @@ public class PlayerManager {
             nowscore+=50;
             decroll++;
         }
-        dices.removeDices(decroll);
+        diceBox.removeDices(decroll);
         return nowscore;
     }
 

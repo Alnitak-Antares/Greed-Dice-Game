@@ -1,4 +1,3 @@
-package greed_game;
 public class GameManager {
     public static void main(String[] args)
     {
@@ -46,9 +45,9 @@ public class GameManager {
     }
     public static void startGame()
     {
-        Dices dices = new Dices();
+        DiceBox diceBox = new DiceBox();
         PlayerManager playermanager = new PlayerManager();
-        playermanager.start(players,playerNum,dices);
+        playermanager.start(players,playerNum, diceBox);
     }
 
 }

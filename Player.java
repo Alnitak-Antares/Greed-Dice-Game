@@ -1,4 +1,3 @@
-package greed_game;
 abstract public class Player {
     private String name;
     private boolean enrolled = false;
@@ -11,7 +10,7 @@ abstract public class Player {
         name = playerName;
     }
 
-    abstract public boolean makeChoice(Dices dices);
+    abstract public boolean makeChoice(DiceBox diceBox);
 
     public String getName()
     {

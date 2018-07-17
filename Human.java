@@ -1,4 +1,3 @@
-package greed_game;
 public class Human extends Player {
     Human(String name)
     {
@@ -6,11 +5,11 @@ public class Human extends Player {
     }
 
     @Override
-    public boolean makeChoice(Dices dices) {
+    public boolean makeChoice(DiceBox diceBox) {
         boolean choice = PlayView.getChoice(this.getName());
         if(choice == true)
         {
-            dices.roll();
+            diceBox.roll();
             return true;
         }
         else
