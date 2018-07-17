@@ -6,7 +6,13 @@ public class PlayView {
     static private Scanner kbin = new Scanner(System.in);
     static public boolean getChoice(String name)
     {
-        String c=kbin.next();
+    	boolean flag=false;
+    	String c;
+    	do {
+    		c=kbin.next();
+    		if (c.contains("y") || c.contains("Y") || c.contains("n") || c.contains("N")) flag=true;
+    		if (flag==false) System.out.println("Input Error,请再次输入");
+    	}while (flag==false);
         return c.contains("y");
     }
     static public void nowaskDices(String name) {

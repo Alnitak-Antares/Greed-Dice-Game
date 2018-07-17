@@ -25,7 +25,13 @@ public class ConfigureView {
     {
     	askingOut("是否增加一个玩家？y/n(选择否则开始游戏)");
         //  System.out.println("是否停止设置并开始游戏？y/n");
-        String c=kbin.next();
+    	boolean flag=false;
+    	String c;
+    	do {
+    		c=kbin.next();
+    		if (c.contains("y") || c.contains("Y") || c.contains("n") || c.contains("N")) flag=true;
+    		if (flag==false) System.out.println("Input Error,请再次输入");
+    	}while (flag==false);
         boolean stop = c.contains("n");
         return stop;
 
@@ -33,7 +39,14 @@ public class ConfigureView {
     static public int getPlayerType()
     {
         System.out.println("请输入玩家类型(0表示Human,1表示AI)：");
-        return kbin.nextInt();
+        int type;
+        boolean flag=false;
+    	do {
+    		type=kbin.nextInt();
+    		if (type==0 || type==1) flag=true;
+    		if (flag==false) System.out.println("Input Error,请再次输入");
+    	}while (flag==false);
+        return type;
     }
     static public String getPlayerName()
     {
